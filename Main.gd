@@ -102,11 +102,15 @@ func _apply_card(card: Card) -> void:
 				print("unknown card %s" % card)
 
 func _on_Timer_timeout():
-	Global.CURRENT_TRAIN += Global.CURRENT_TRAIN_STEP
+	# Global.CURRENT_TRAIN += Global.CURRENT_TRAIN_STEP
+	pass
 
 func _on_Confirm_pressed():
 	$SelectPlayer.play()
+	Global.CURRENT_TRAIN += Global.CURRENT_TRAIN_STEP
 	draw_new_cards()
+	if Global.CURRENT_TRAIN >= Global.MAX_TRAIN:
+		get_tree().change_scene("res://GameOver.tscn")
 
 func _on_CardSlot1_pressed():
 	hand[0].flip()
