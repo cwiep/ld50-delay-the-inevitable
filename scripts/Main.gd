@@ -15,7 +15,7 @@ func _ready():
 func _import_cards() -> Array:
 	print("reading json file")
 	var file = File.new()
-	file.open("res://cards.tres", file.READ)
+	file.open("res://cards.json", file.READ)
 	var text = file.get_as_text()
 	var result = JSON.parse(text)
 	print("errors: %s %s %s" % [result.error, result.error_line, result.error_string])
