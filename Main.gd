@@ -1,5 +1,7 @@
 extends Node2D
 
+const HAND_SIZE = 2
+
 var deck = []
 var trash = []
 var hand = []
@@ -51,7 +53,7 @@ func draw_new_cards():
 	print("trash size: " + str(trash.size()))
 	
 	print("=== drawing new cards")
-	while hand.size() < 3:
+	while hand.size() < HAND_SIZE:
 		if deck.size() > 0:
 			var card = deck.pop_front()
 			print("drawn: " + str(card))
