@@ -61,25 +61,19 @@ __meta__ = {
 }
 
 [node name="CardSlot1" type="Button" parent="Cards"]
-margin_left = 219.617
-margin_top = 412.888
-margin_right = 369.617
-margin_bottom = 562.888
+margin_left = 332.98
+margin_top = 413.947
+margin_right = 482.98
+margin_bottom = 563.947
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CardSlot2" type="Button" parent="Cards"]
-margin_left = 409.336
-margin_top = 412.888
-margin_right = 559.336
-margin_bottom = 562.888
-
-[node name="CardSlot3" type="Button" parent="Cards"]
-margin_left = 608.494
-margin_top = 413.832
-margin_right = 758.494
-margin_bottom = 563.832
+margin_left = 532.234
+margin_top = 413.947
+margin_right = 682.234
+margin_bottom = 563.947
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -96,5 +90,4 @@ __meta__ = {
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Cards/CardSlot1" to="." method="_on_CardSlot1_pressed"]
 [connection signal="pressed" from="Cards/CardSlot2" to="." method="_on_CardSlot2_pressed"]
-[connection signal="pressed" from="Cards/CardSlot3" to="." method="_on_CardSlot3_pressed"]
 [connection signal="pressed" from="Cards/Confirm" to="." method="_on_Confirm_pressed"]

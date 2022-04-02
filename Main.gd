@@ -50,7 +50,6 @@ func _update_ui():
 	$Cards/Saved.text = "Saved: " + str(Global.saved)
 	$Cards/CardSlot1.text = _generate_card_text(hand[0])
 	$Cards/CardSlot2.text = _generate_card_text(hand[1])
-	$Cards/CardSlot3.text = _generate_card_text(hand[2])
 
 func _generate_card_text(card: Card) -> String:
 	var result = ""
@@ -85,6 +84,3 @@ func _on_CardSlot1_pressed():
 
 func _on_CardSlot2_pressed():
 	hand[1].flip()
-
-func _on_CardSlot3_pressed():
-	hand[2].flip()
