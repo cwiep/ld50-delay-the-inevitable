@@ -1,18 +1,42 @@
 extends Node2D
 
-var deck = [
-	Card.new([[Global.ACTION.MOVE_TRAIN, 5]], [[Global.ACTION.SPEED_UP_TRAIN, 1]]),
-	Card.new([[Global.ACTION.SAFE, 10]], [[Global.ACTION.SAFE, 5]]),
-	Card.new([[Global.ACTION.SPEED_UP_TRAIN, 1]], [[Global.ACTION.MOVE_TRAIN, 2]]),
-	Card.new([[Global.ACTION.MOVE_TRAIN, 10]], [[Global.ACTION.SAFE, 2]]),
-]
+var deck = []
 var trash = []
 var hand = []
 
 func _ready():
 	$Progress.max_value = Global.MAX_TRAIN
 	randomize()
+	deck = _import_cards()
 	draw_new_cards()
+
+func _import_cards() -> Array:
+	print("reading json file")
+	var file = File.new()
+	file.open("res://cards.tres", file.READ)
+	var text = file.get_as_text()
+	var result = JSON.parse(text)
+	print("errors: %s %s %s" % [result.error, result.error_line, result.error_string])
+	file.close()
+	print(result.result)
+	
+	var cards = []
+	for card in result.result:
+		var qty = card["quantity"]
+		for _i in range(qty):
+			var front = []
+			for f in card["front"]:
+				front.append([Global.ACTION.get(f["type"]), f["value"]])
+			
+			var back = []
+			for b in card["back"]:
+				back.append([Global.ACTION.get(b["type"]), b["value"]])
+				
+			var inst = Card.new(front, back)
+			print("adding ", inst)
+			cards.append(inst)
+		
+	return cards
 
 func _process(_delta):
 	_update_ui()
@@ -54,7 +78,7 @@ func _update_ui():
 func _generate_card_text(card: Card) -> String:
 	var result = ""
 	for action in card.get_actions():
-		result += "%s %s\n" % [Global.labels[action[0]], action[1]]
+		result += "%s %s; " % [Global.labels[action[0]], action[1]]
 	return result
 
 func _apply_card(card: Card) -> void:
