@@ -72,15 +72,17 @@ func _shuffle_deck():
 	
 func _update_ui():
 	$Progress.value = Global.CURRENT_TRAIN
-	$Cards/Label.text = "Deck: " + str(deck.size())
+	$Step.text = "Step %s" % Global.CURRENT_TRAIN_STEP
+	$Cards/DeckSize.text = "Deck: " + str(deck.size())
+	$Cards/TrashSize.text = "Discarded: " + str(trash.size())
 	$Cards/Saved.text = "Saved: " + str(Global.saved)
-	$Cards/CardSlot1.text = _generate_card_text(hand[0])
-	$Cards/CardSlot2.text = _generate_card_text(hand[1])
+	$Cards/CardSlot1/Label.text = _generate_card_text(hand[0])
+	$Cards/CardSlot2/Label.text = _generate_card_text(hand[1])
 
 func _generate_card_text(card: Card) -> String:
 	var result = ""
 	for action in card.get_actions():
-		result += "%s %s; " % [Global.labels[action[0]], action[1]]
+		result += "%s %s\n" % [Global.labels[action[0]], action[1]]
 	return result
 
 func _apply_card(card: Card) -> void:
@@ -103,6 +105,7 @@ func _on_Timer_timeout():
 	Global.CURRENT_TRAIN += Global.CURRENT_TRAIN_STEP
 
 func _on_Confirm_pressed():
+	$SelectPlayer.play()
 	draw_new_cards()
 
 func _on_CardSlot1_pressed():

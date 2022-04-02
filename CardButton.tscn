@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://CardButton.gd" type="Script" id=1]
+
+[node name="CardButton" type="Button"]
+anchor_right = 0.198
+anchor_bottom = 0.338
+margin_right = 0.247986
+margin_bottom = 0.199982
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="."]
+margin_left = 16.0
+margin_top = 17.0
+margin_right = 186.0
+margin_bottom = 181.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

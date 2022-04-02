@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://background.png" type="Texture" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
+[ext_resource path="res://sfx/hitHurt.wav" type="AudioStream" id=3]
+[ext_resource path="res://sfx/blipSelect.wav" type="AudioStream" id=4]
+[ext_resource path="res://CardButton.tscn" type="PackedScene" id=5]
 
 [node name="Root" type="Node2D"]
 script = ExtResource( 2 )
@@ -16,6 +19,16 @@ margin_top = 14.0
 margin_right = 1006.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 988, 36 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Step" type="Label" parent="."]
+margin_left = 24.0
+margin_top = 18.0
+margin_right = 97.0
+margin_bottom = 43.0
+text = "Step: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -40,12 +53,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Cards"]
+[node name="DeckSize" type="Label" parent="Cards"]
 margin_left = 36.8111
 margin_top = 489.871
 margin_right = 76.8111
 margin_bottom = 503.871
 text = "Deck:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TrashSize" type="Label" parent="Cards"]
+margin_left = 37.0812
+margin_top = 513.84
+margin_right = 77.0812
+margin_bottom = 527.84
+text = "Discarded:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -60,23 +83,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CardSlot1" type="Button" parent="Cards"]
-margin_left = 332.98
-margin_top = 413.947
-margin_right = 482.98
-margin_bottom = 563.947
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CardSlot1" parent="Cards" instance=ExtResource( 5 )]
+margin_left = 318.27
+margin_top = 398.536
+margin_right = 265.518
+margin_bottom = 535.016
 
-[node name="CardSlot2" type="Button" parent="Cards"]
-margin_left = 532.234
-margin_top = 413.947
-margin_right = 682.234
-margin_bottom = 563.947
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CardSlot2" parent="Cards" instance=ExtResource( 5 )]
+margin_left = 513.84
+margin_top = 400.477
+margin_right = 461.088
+margin_bottom = 536.957
 
 [node name="Confirm" type="Button" parent="Cards"]
 margin_left = 824.584
@@ -87,6 +104,12 @@ text = "Confirm"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SelectPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="HurtPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Cards/CardSlot1" to="." method="_on_CardSlot1_pressed"]
 [connection signal="pressed" from="Cards/CardSlot2" to="." method="_on_CardSlot2_pressed"]
