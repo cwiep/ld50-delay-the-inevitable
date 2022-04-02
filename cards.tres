@@ -4,11 +4,11 @@
 		"quantity": 1,
 		"front": [
 			{"type": "MOVE_TRAIN", "value": 5},
-			{"type": "SAFE", "value": 5}
+			{"type": "SAFE", "value": 5},
 		],
 		"back": [
+			{"type": "SPEED_UP_TRAIN", "value": 2},
 			{"type": "SAFE", "value": 10},
-			{"type": "SPEED_UP_TRAIN", "value": 2}
 		]
 	},
 	{
@@ -29,8 +29,8 @@
 			{"type": "SAFE", "value": 3}
 		],
 		"back": [
+			{"type": "SPEED_UP_TRAIN", "value": 1},
 			{"type": "SAFE", "value": 5},
-			{"type": "SPEED_UP_TRAIN", "value": 1}
 		]
 	},
 	{
