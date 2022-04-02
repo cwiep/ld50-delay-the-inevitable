@@ -13,8 +13,8 @@ enum ACTION {
 
 const labels = {
 	ACTION.MOVE_TRAIN: "Move Train",
-	ACTION.SPEED_UP_TRAIN: "Speed Up",
-	ACTION.SAFE: "Safe"
+	ACTION.SPEED_UP_TRAIN: "Accelerate",
+	ACTION.SAFE: "Save"
 }
 
 func reset():
