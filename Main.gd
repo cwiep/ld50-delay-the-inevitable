@@ -1,11 +1,10 @@
 extends Node2D
 
-var cardbase = load("res://Card.gd")
-var cards = [
-	cardbase.new(Global.ACTION.MOVE_TRAIN, 5, Global.ACTION.SPEED_UP_TRAIN, 1),
-	cardbase.new(Global.ACTION.SAFE, 10, Global.ACTION.SAFE, 5),
-	cardbase.new(Global.ACTION.SPEED_UP_TRAIN, 1, Global.ACTION.MOVE_TRAIN, 2),
-	cardbase.new(Global.ACTION.MOVE_TRAIN, 10, Global.ACTION.SAFE, 2),
+var deck = [
+	Card.new([[Global.ACTION.MOVE_TRAIN, 5]], [[Global.ACTION.SPEED_UP_TRAIN, 1]]),
+	Card.new([[Global.ACTION.SAFE, 10]], [[Global.ACTION.SAFE, 5]]),
+	Card.new([[Global.ACTION.SPEED_UP_TRAIN, 1]], [[Global.ACTION.MOVE_TRAIN, 2]]),
+	Card.new([[Global.ACTION.MOVE_TRAIN, 10]], [[Global.ACTION.SAFE, 2]]),
 ]
 var trash = []
 var hand = []
@@ -16,7 +15,6 @@ func _ready():
 	draw_new_cards()
 
 func _process(_delta):
-	$Progress.value = Global.CURRENT_TRAIN
 	_update_ui()
 
 func draw_new_cards():
@@ -30,43 +28,51 @@ func draw_new_cards():
 	
 	print("=== drawing new cards")
 	while hand.size() < 3:
-		if cards.size() > 0:
-			var card = cards.pop_front()
+		if deck.size() > 0:
+			var card = deck.pop_front()
 			print("drawn: " + str(card))
 			hand.append(card)
 		else:
 			_shuffle_deck()
 			
-	print("deck size: " + str(cards.size()))
+	print("deck size: " + str(deck.size()))
 	_update_ui()
 	
 func _shuffle_deck():
 	print("shuffling deck")
 	while trash.size() > 0:
-		cards.append(trash.pop_front())
-	cards.shuffle()
+		deck.append(trash.pop_front())
+	deck.shuffle()
 	
 func _update_ui():
-	$Cards/Label.text = "Deck: " + str(cards.size())
+	$Progress.value = Global.CURRENT_TRAIN
+	$Cards/Label.text = "Deck: " + str(deck.size())
 	$Cards/Saved.text = "Saved: " + str(Global.saved)
-	$Cards/CardSlot1.text = Global.labels[hand[0].get_action()] + " " + str(hand[0].get_value())
-	$Cards/CardSlot2.text = Global.labels[hand[1].get_action()] + " " + str(hand[1].get_value())
-	$Cards/CardSlot3.text = Global.labels[hand[2].get_action()] + " " + str(hand[2].get_value())
+	$Cards/CardSlot1.text = _generate_card_text(hand[0])
+	$Cards/CardSlot2.text = _generate_card_text(hand[1])
+	$Cards/CardSlot3.text = _generate_card_text(hand[2])
 
-func _apply_card(card):
-	var action = card.get_action()
-	var value = card.get_value()
-	print("using %s %s" % [Global.labels[action], value])
-	# TODO action handling should be done in Global (or dedicated handler)
-	match card.get_action():
-		Global.ACTION.SAFE:
-			Global.save_people(value)
-		Global.ACTION.MOVE_TRAIN:
-			Global.move_train(value)
-		Global.ACTION.SPEED_UP_TRAIN:
-			Global.speed_up_train(value)
-		_:
-			print("unknown card %s" % card)
+func _generate_card_text(card: Card) -> String:
+	var result = ""
+	for action in card.get_actions():
+		result += "%s %s\n" % [Global.labels[action[0]], action[1]]
+	return result
+
+func _apply_card(card: Card) -> void:
+	for action in card.get_actions():
+		var action_type = action[0]
+		var value = action[1]
+		print("using %s %s" % [Global.labels[action_type], value])
+		# TODO action handling should be done in Global (or dedicated handler)
+		match action_type:
+			Global.ACTION.SAFE:
+				Global.save_people(value)
+			Global.ACTION.MOVE_TRAIN:
+				Global.move_train(value)
+			Global.ACTION.SPEED_UP_TRAIN:
+				Global.speed_up_train(value)
+			_:
+				print("unknown card %s" % card)
 
 func _on_Timer_timeout():
 	Global.CURRENT_TRAIN += Global.CURRENT_TRAIN_STEP
