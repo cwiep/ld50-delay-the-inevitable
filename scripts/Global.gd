@@ -1,6 +1,6 @@
 extends Node
 
-const MAX_TRAIN = 100
+const MAX_TRAIN = 200
 var CURRENT_TRAIN = 0
 var CURRENT_TRAIN_STEP = 1
 var saved = 0

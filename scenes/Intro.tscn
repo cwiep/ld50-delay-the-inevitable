@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Intro.gd" type="Script" id=1]
-[ext_resource path="res://gfx/city.png" type="Texture" id=2]
-[ext_resource path="res://gfx/rock.png" type="Texture" id=3]
+[ext_resource path="res://gfx/title.png" type="Texture" id=2]
 [ext_resource path="res://gfx/controls.png" type="Texture" id=4]
+[ext_resource path="res://sfx/click.wav" type="AudioStream" id=5]
 
 [node name="Intro" type="Control"]
 anchor_right = 1.0
@@ -14,10 +14,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 57.0
-margin_top = 183.0
-margin_right = 533.0
-margin_bottom = 314.0
+margin_left = 55.9406
+margin_top = 191.476
+margin_right = 531.941
+margin_bottom = 296.476
 text = "One night, a gigantic meteor fell from the sky
 
 heading for the capital city.
@@ -30,30 +30,21 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="."]
-margin_left = 200.378
-margin_top = 464.786
-margin_right = 391.378
-margin_bottom = 538.786
+margin_left = 194.021
+margin_top = 477.17
+margin_right = 385.021
+margin_bottom = 551.17
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="rock" type="Sprite" parent="."]
-position = Vector2( 27.3491, 20.2447 )
-rotation = 0.513127
-texture = ExtResource( 3 )
-
-[node name="city" type="Sprite" parent="."]
-position = Vector2( 298.572, 149.499 )
-texture = ExtResource( 2 )
-
 [node name="Credits" type="Label" parent="."]
-margin_left = 56.3843
-margin_top = 579.526
-margin_right = 562.384
-margin_bottom = 593.526
-text = "Made for Ludum Dare 50 by Christian Wieprecht (@chriiis88 ldjam.com)"
+margin_left = 4.0
+margin_top = 580.0
+margin_right = 595.0
+margin_bottom = 594.0
+text = "Made for Ludum Dare 50 Compo by @chriiis88"
 align = 1
 valign = 1
 __meta__ = {
@@ -62,11 +53,11 @@ __meta__ = {
 
 [node name="Controls" type="Label" parent="."]
 visible = false
-margin_left = 129.0
-margin_top = 391.0
-margin_right = 530.0
-margin_bottom = 438.0
-text = "Mouse OR Left/Right OR Square/Circle (PS4) OR X/B (Xbox)"
+margin_left = 118.405
+margin_top = 423.708
+margin_right = 468.405
+margin_bottom = 470.708
+text = "Left/Right OR Square/Circle (PS4) OR X/B (Xbox)"
 align = 1
 valign = 1
 __meta__ = {
@@ -75,16 +66,16 @@ __meta__ = {
 
 [node name="ControlsIcon" type="Sprite" parent="."]
 visible = false
-position = Vector2( 94, 413 )
+position = Vector2( 284.405, 413.708 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 4 )
 
 [node name="Explanation" type="Label" parent="."]
 visible = false
-margin_left = 138.0
-margin_top = 328.0
-margin_right = 454.0
-margin_bottom = 369.0
+margin_left = 129.405
+margin_top = 339.421
+margin_right = 445.405
+margin_bottom = 380.421
 text = "Choose one of the cards each turn. 
 Save as many people as possible."
 align = 1
@@ -92,4 +83,12 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ButtonClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="title" type="Sprite" parent="."]
+position = Vector2( 292.059, 121.37 )
+scale = Vector2( 1.52667, 1.52667 )
+texture = ExtResource( 2 )
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]

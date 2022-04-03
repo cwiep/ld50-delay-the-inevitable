@@ -1,5 +1,8 @@
 extends TextureProgress
 
+func _ready():
+	self.max_value = Global.MAX_TRAIN
+
 func _process(_delta):
 	$Sprite.global_position.x = self.rect_global_position.x + self.rect_size.x * (self.value/self.max_value)
 	$Sprite.global_position.y = self.rect_global_position.y + self.rect_size.y/2

@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/blipSelect.wav-6d78b1058fc3ac043c569c11bc8808f5.sample"
+path="res://.import/click.wav-bcd50a54d7ddda04053b7bcc30270872.sample"
 
 [deps]
 
-source_file="res://sfx/blipSelect.wav"
-dest_files=[ "res://.import/blipSelect.wav-6d78b1058fc3ac043c569c11bc8808f5.sample" ]
+source_file="res://sfx/click.wav"
+dest_files=[ "res://.import/click.wav-bcd50a54d7ddda04053b7bcc30270872.sample" ]
 
 [params]
 

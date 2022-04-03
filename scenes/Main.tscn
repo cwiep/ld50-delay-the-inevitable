@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://sfx/click.wav" type="AudioStream" id=1]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=2]
-[ext_resource path="res://sfx/hitHurt.wav" type="AudioStream" id=3]
-[ext_resource path="res://sfx/blipSelect.wav" type="AudioStream" id=4]
 [ext_resource path="res://scenes/CardButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/TextureProgress.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gfx/people.png" type="Texture" id=7]
@@ -13,10 +12,10 @@
 script = ExtResource( 2 )
 
 [node name="TextureProgress" parent="." instance=ExtResource( 6 )]
-margin_left = 25.6324
-margin_top = 46.3568
-margin_right = 525.632
-margin_bottom = 61.3568
+margin_left = 3.0
+margin_top = 46.0
+margin_right = 522.0
+margin_bottom = 61.0
 
 [node name="Progress" type="ProgressBar" parent="."]
 visible = false
@@ -37,22 +36,13 @@ __meta__ = {
 }
 
 [node name="CardSlot1" parent="Cards" instance=ExtResource( 5 )]
-margin_left = 77.4138
-margin_top = 328.719
-margin_right = 44.6618
-margin_bottom = 545.199
+position = Vector2( 90.3797, 331.789 )
 
 [node name="CardSlot2" parent="Cards" instance=ExtResource( 5 )]
-margin_left = 361.834
-margin_top = 329.541
-margin_right = 329.082
-margin_bottom = 546.021
+position = Vector2( 350.816, 331.789 )
 
-[node name="SelectPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-
-[node name="HurtPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+[node name="SelectCardSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
 
 [node name="PeopleSavedLabel" type="Label" parent="."]
 margin_left = 458.747
@@ -129,5 +119,4 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Cards/CardSlot1" to="." method="_on_choose_left_pressed"]
-[connection signal="pressed" from="Cards/CardSlot2" to="." method="_on_choose_right_pressed"]
+[connection signal="finished" from="SelectCardSound" to="." method="_on_SelectCardSound_finished"]

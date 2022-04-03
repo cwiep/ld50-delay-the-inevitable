@@ -1,12 +1,13 @@
 extends Control
 
 var _clicked: bool = false
-
-func _process(_delta):
-	if Input.is_action_just_pressed("choose_left") or Input.is_action_just_pressed("choose_right"):
+		
+func _input(event):
+	if event is InputEventKey and event.is_pressed() and !event.is_echo():
 		_on_Start_pressed()
 
 func _on_Start_pressed():
+	$ButtonClickSound.play()
 	if _clicked:
 		var _result = get_tree().change_scene("res://scenes/Main.tscn")
 	else:

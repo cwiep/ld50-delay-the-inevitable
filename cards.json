@@ -51,7 +51,7 @@
 		"quantity": 3,
 		"front": [
 			{"type": "MOVE_TRAIN", "value": 5},
-			{"type": "SAFE", "value": 5},
+			{"type": "SAFE", "value": 10},
 		],
 		"back": []
 	},

@@ -7,6 +7,7 @@ var trash = []
 var hand = []
 
 func _ready():
+	Global.reset()
 	$Progress.max_value = Global.MAX_TRAIN
 	randomize()
 	deck = _import_cards()
@@ -51,11 +52,15 @@ func _import_cards() -> Array:
 	return cards
 
 func _process(_delta):
-	if Input.is_action_just_pressed("choose_left"):
-		_on_choose_left_pressed()
-	elif Input.is_action_just_pressed("choose_right"):
-		_on_choose_right_pressed()
 	_update_ui()
+	
+func _input(event):
+	if event.is_echo():
+		return
+	if event.is_action_pressed("choose_left"):
+		_on_choose_left_pressed()
+	elif event.is_action_pressed("choose_right"):
+		_on_choose_right_pressed()
 
 func draw_new_cards():
 	# remove current hand
@@ -129,16 +134,16 @@ func _perform_action(action):
 			print("unknown action %s", action)
 
 func _on_choose_left_pressed():
-	$SelectPlayer.play()
+	$Cards/CardSlot1/Button/AnimationPlayer.play("select")
+	$SelectCardSound.play()
 	_apply_card(hand[0])
-	Global.CURRENT_TRAIN += Global.CURRENT_TRAIN_STEP
-	draw_new_cards()
-	if Global.CURRENT_TRAIN >= Global.MAX_TRAIN:
-		var _ignore = get_tree().change_scene("res://scenes/GameOver.tscn")
 
 func _on_choose_right_pressed():
-	$SelectPlayer.play()
+	$Cards/CardSlot2/Button/AnimationPlayer.play("select")
+	$SelectCardSound.play()
 	_apply_card(hand[1])
+
+func _on_SelectCardSound_finished():
 	Global.CURRENT_TRAIN += Global.CURRENT_TRAIN_STEP
 	draw_new_cards()
 	if Global.CURRENT_TRAIN >= Global.MAX_TRAIN:

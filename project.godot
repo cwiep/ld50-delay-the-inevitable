@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="LD50 Delay the Inevitable"
+config/name="Clear Skies with a Chance of Meteors"
 run/main_scene="res://scenes/Intro.tscn"
 config/icon="res://gfx/icon.png"
 
