@@ -20,12 +20,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 464.575, 22.7785 )
-scale = Vector2( 0.91723, 0.91723 )
-texture = ExtResource( 4 )
-
 [node name="City" type="Sprite" parent="."]
 position = Vector2( 933.387, 21.1893 )
 scale = Vector2( 0.576215, 0.576215 )
 texture = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 464.575, 22.7785 )
+scale = Vector2( 0.91723, 0.91723 )
+texture = ExtResource( 4 )
