@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Intro.gd" type="Script" id=1]
 [ext_resource path="res://gfx/city.png" type="Texture" id=2]
 [ext_resource path="res://gfx/rock.png" type="Texture" id=3]
+[ext_resource path="res://gfx/controls.png" type="Texture" id=4]
 
 [node name="Intro" type="Control"]
 anchor_right = 1.0
@@ -13,10 +14,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 57.1591
-margin_top = 182.69
-margin_right = 533.159
-margin_bottom = 369.69
+margin_left = 57.0
+margin_top = 183.0
+margin_right = 533.0
+margin_bottom = 314.0
 text = "One night, a gigantic meteor fell from the sky
 
 heading for the capital city.
@@ -30,9 +31,9 @@ __meta__ = {
 
 [node name="Start" type="Button" parent="."]
 margin_left = 200.378
-margin_top = 451.786
+margin_top = 464.786
 margin_right = 391.378
-margin_bottom = 525.786
+margin_bottom = 538.786
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -48,9 +49,47 @@ position = Vector2( 298.572, 149.499 )
 texture = ExtResource( 2 )
 
 [node name="Credits" type="Label" parent="."]
-margin_left = 149.384
+margin_left = 56.3843
 margin_top = 579.526
-margin_right = 456.384
+margin_right = 562.384
 margin_bottom = 593.526
-text = "Made for Ludum Dare 50 by Christian Wieprecht"
+text = "Made for Ludum Dare 50 by Christian Wieprecht (@chriiis88 ldjam.com)"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Label" parent="."]
+visible = false
+margin_left = 129.0
+margin_top = 391.0
+margin_right = 530.0
+margin_bottom = 438.0
+text = "Mouse OR Left/Right OR Square/Circle (PS4) OR X/B (Xbox)"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlsIcon" type="Sprite" parent="."]
+visible = false
+position = Vector2( 94, 413 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 4 )
+
+[node name="Explanation" type="Label" parent="."]
+visible = false
+margin_left = 138.0
+margin_top = 328.0
+margin_right = 454.0
+margin_bottom = 369.0
+text = "Choose one of the cards each turn. 
+Save as many people as possible."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
