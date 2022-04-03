@@ -85,18 +85,19 @@ __meta__ = {
 }
 
 [node name="CardSlot1" parent="Cards" instance=ExtResource( 5 )]
-margin_left = 318.27
-margin_top = 398.536
-margin_right = 265.518
-margin_bottom = 535.016
+margin_left = 352.757
+margin_top = 309.345
+margin_right = 300.005
+margin_bottom = 445.825
 
 [node name="CardSlot2" parent="Cards" instance=ExtResource( 5 )]
-margin_left = 513.84
-margin_top = 400.477
-margin_right = 461.088
-margin_bottom = 536.957
+margin_left = 554.273
+margin_top = 313.665
+margin_right = 501.521
+margin_bottom = 450.145
 
 [node name="Confirm" type="Button" parent="Cards"]
+visible = false
 margin_left = 824.584
 margin_top = 468.703
 margin_right = 938.584
@@ -112,6 +113,6 @@ stream = ExtResource( 4 )
 [node name="HurtPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="pressed" from="Cards/CardSlot1" to="." method="_on_CardSlot1_pressed"]
-[connection signal="pressed" from="Cards/CardSlot2" to="." method="_on_CardSlot2_pressed"]
+[connection signal="pressed" from="Cards/CardSlot1" to="." method="_on_choose_left_pressed"]
+[connection signal="pressed" from="Cards/CardSlot2" to="." method="_on_choose_right_pressed"]
 [connection signal="pressed" from="Cards/Confirm" to="." method="_on_Confirm_pressed"]

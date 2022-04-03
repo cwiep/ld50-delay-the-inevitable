@@ -41,14 +41,16 @@ func _import_cards() -> Array:
 	return cards
 
 func _process(_delta):
+	if Input.is_action_just_pressed("choose_left"):
+		_on_choose_left_pressed()
+	elif Input.is_action_just_pressed("choose_right"):
+		_on_choose_right_pressed()
 	_update_ui()
 
 func draw_new_cards():
 	# remove current hand
 	while !hand.empty():
-		var card = hand.pop_front()
-		_apply_card(card)
-		trash.append(card)
+		trash.append(hand.pop_front())
 		
 	print("trash size: " + str(trash.size()))
 	
@@ -111,3 +113,20 @@ func _on_CardSlot1_pressed():
 
 func _on_CardSlot2_pressed():
 	hand[1].flip()
+
+
+func _on_choose_left_pressed():
+	$SelectPlayer.play()
+	_apply_card(hand[0])
+	Global.CURRENT_TRAIN += Global.CURRENT_TRAIN_STEP
+	draw_new_cards()
+	if Global.CURRENT_TRAIN >= Global.MAX_TRAIN:
+		var _ignore = get_tree().change_scene("res://scenes/GameOver.tscn")
+
+func _on_choose_right_pressed():
+	$SelectPlayer.play()
+	_apply_card(hand[1])
+	Global.CURRENT_TRAIN += Global.CURRENT_TRAIN_STEP
+	draw_new_cards()
+	if Global.CURRENT_TRAIN >= Global.MAX_TRAIN:
+		var _ignore = get_tree().change_scene("res://scenes/GameOver.tscn")
