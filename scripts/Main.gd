@@ -34,7 +34,7 @@ func _import_cards() -> Array:
 			for b in card["back"]:
 				back.append([Global.ACTION.get(b["type"]), b["value"]])
 				
-			var inst = Card.new(front, back)
+			var inst = Card.new(card["name"], front, back)
 			print("adding ", inst)
 			cards.append(inst)
 		
@@ -76,14 +76,8 @@ func _update_ui():
 	$Cards/DeckSize.text = "Deck: " + str(deck.size())
 	$Cards/TrashSize.text = "Discarded: " + str(trash.size())
 	$Cards/Saved.text = "Saved: " + str(Global.saved)
-	$Cards/CardSlot1/Label.text = _generate_card_text(hand[0])
-	$Cards/CardSlot2/Label.text = _generate_card_text(hand[1])
-
-func _generate_card_text(card: Card) -> String:
-	var result = ""
-	for action in card.get_actions():
-		result += "%s %s\n" % [Global.labels[action[0]], action[1]]
-	return result
+	$Cards/CardSlot1.set_card(hand[0])
+	$Cards/CardSlot2.set_card(hand[1])
 
 func _apply_card(card: Card) -> void:
 	for action in card.get_actions():

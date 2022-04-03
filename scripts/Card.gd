@@ -1,13 +1,18 @@
 class_name Card
 extends Node
 
+var _name: String
 var _front_actions: Array
 var _back_actions: Array
 var _flipped = false
 
-func _init(front_actions: Array, back_actions: Array):
+func _init(name: String, front_actions: Array, back_actions: Array):
+	self._name = name
 	self._front_actions = front_actions
 	self._back_actions = back_actions
+
+func get_name() -> String:
+	return _name
 
 func get_actions() -> Array:
 	if _flipped:
