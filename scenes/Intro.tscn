@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/Intro.gd" type="Script" id=1]
+[ext_resource path="res://gfx/city.png" type="Texture" id=2]
+[ext_resource path="res://gfx/rock.png" type="Texture" id=3]
 
 [node name="Intro" type="Control"]
 anchor_right = 1.0
@@ -11,13 +13,13 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 62.4564
-margin_top = 64.0299
-margin_right = 538.456
-margin_bottom = 251.03
-text = "One night, a massive asteroid fell from the sky.
+margin_left = 57.1591
+margin_top = 182.69
+margin_right = 533.159
+margin_bottom = 369.69
+text = "One night, a gigantic meteor fell from the sky
 
-It aimed directly for the capital city.
+heading for the capital city.
 
 And so the king called for his best magicians..."
 align = 1
@@ -35,4 +37,20 @@ text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="rock" type="Sprite" parent="."]
+position = Vector2( 27.3491, 20.2447 )
+rotation = 0.513127
+texture = ExtResource( 3 )
+
+[node name="city" type="Sprite" parent="."]
+position = Vector2( 298.572, 149.499 )
+texture = ExtResource( 2 )
+
+[node name="Credits" type="Label" parent="."]
+margin_left = 149.384
+margin_top = 579.526
+margin_right = 456.384
+margin_bottom = 593.526
+text = "Made for Ludum Dare 50 by Christian Wieprecht"
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
