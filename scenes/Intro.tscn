@@ -15,14 +15,24 @@ margin_left = 278.059
 margin_top = 192.595
 margin_right = 754.059
 margin_bottom = 379.595
-text = "An out of control train is racing towards the city. Do something!"
+text = "One night, a massive asteroid fell from the sky.
+
+It aimed directly for the capital city.
+
+And so the king called for his best magicians..."
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Start" type="Button" parent="."]
-margin_left = 485.234
-margin_top = 340.088
-margin_right = 526.234
-margin_bottom = 360.088
+margin_left = 464.0
+margin_top = 447.0
+margin_right = 555.0
+margin_bottom = 467.0
 text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]

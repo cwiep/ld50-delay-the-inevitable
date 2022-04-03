@@ -65,7 +65,7 @@ func draw_new_cards():
 			
 	print("deck size: " + str(deck.size()))
 	_update_ui()
-	
+
 func _shuffle_deck():
 	print("shuffling deck")
 	while trash.size() > 0:
@@ -73,7 +73,7 @@ func _shuffle_deck():
 	deck.shuffle()
 	
 func _update_ui():
-	$Progress.value = Global.CURRENT_TRAIN
+	$TextureProgress.value = Global.CURRENT_TRAIN
 	$Step.text = "Step %s" % Global.CURRENT_TRAIN_STEP
 	$Cards/DeckSize.text = "Deck: " + str(deck.size())
 	$Cards/TrashSize.text = "Discarded: " + str(trash.size())
@@ -106,7 +106,7 @@ func _on_Confirm_pressed():
 	Global.CURRENT_TRAIN += Global.CURRENT_TRAIN_STEP
 	draw_new_cards()
 	if Global.CURRENT_TRAIN >= Global.MAX_TRAIN:
-		get_tree().change_scene("res://scenes/GameOver.tscn")
+		var _ignore = get_tree().change_scene("res://scenes/GameOver.tscn")
 
 func _on_CardSlot1_pressed():
 	hand[0].flip()

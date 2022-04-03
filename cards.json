@@ -1,7 +1,19 @@
 [
 	{
-		"name": "card 1",
-		"quantity": 1,
+		"name": "Sacrifice",
+		"quantity": 2,
+		"front": [
+			{"type": "MOVE_TRAIN", "value": -10},
+			{"type": "SAFE", "value": -5},
+		],
+		"back": [
+			{"type": "SPEED_UP_TRAIN", "value": -2},
+			{"type": "SAFE", "value": -10},
+		]
+	},
+	{
+		"name": "Evacuate",
+		"quantity": 3,
 		"front": [
 			{"type": "MOVE_TRAIN", "value": 5},
 			{"type": "SAFE", "value": 5},
@@ -12,21 +24,11 @@
 		]
 	},
 	{
-		"name": "card 2",
-		"quantity": 1,
+		"name": "Hurry Up!",
+		"quantity": 2,
 		"front": [
-			{"type": "SAFE", "value": 10}
-		],
-		"back": [
-			{"type": "SPEED_UP_TRAIN", "value": -1}
-		]
-	},
-	{
-		"name": "card 3",
-		"quantity": 1,
-		"front": [
-			{"type": "MOVE_TRAIN", "value": 3},
-			{"type": "SAFE", "value": 3}
+			{"type": "SPEED_UP_TRAIN", "value": 5},
+			{"type": "SAFE", "value": 20}
 		],
 		"back": [
 			{"type": "SPEED_UP_TRAIN", "value": 1},
@@ -34,20 +36,33 @@
 		]
 	},
 	{
-		"name": "card 4",
-		"quantity": 1,
+		"name": "Slow Time",
+		"quantity": 2,
 		"front": [
-			{"type": "SAFE", "value": 20}
+			{"type": "SPEED_UP_TRAIN", "value": -1},
+			{"type": "SAFE", "value": -5}
 		],
 		"back": [
 			{"type": "MOVE_TRAIN", "value": -5}
 		]
 	},
 	{
-		"name": "card 5",
+		"name": "Balance",
 		"quantity": 3,
 		"front": [
-			{"type": "MOVE_TRAIN", "value": 10},
+			{"type": "MOVE_TRAIN", "value": 5},
+			{"type": "SPEED_UP_TRAIN", "value": -1},
+		],
+		"back": [
+			{"type": "SPEED_UP_TRAIN", "value": 2}
+		]
+	},
+	{
+		"name": "Reverse Time",
+		"quantity": 3,
+		"front": [
+			{"type": "SPEED_UP_TRAIN", "value": 2},
+			{"type": "MOVE_TRAIN", "value": -10},
 		],
 		"back": [
 			{"type": "SPEED_UP_TRAIN", "value": 2}
