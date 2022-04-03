@@ -1,6 +1,6 @@
 # Clear Skies with a Chance of Meteors
 
-This is my entry for the Ludum Dare 50 Compo.
+This is my entry for the Ludum Dare 50 Compo. See the [entry page](https://ldjam.com/events/ludum-dare/50/clear-skies-with-a-chance-of-meteors) or [play](https://cwiep.itch.io/clear-skies-with-a-chance-of-meteors) the game.
 
 A meteor is heading for the capital city and only you are there to delay it and help the citizens escape!
 
