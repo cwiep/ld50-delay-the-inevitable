@@ -1,23 +1,36 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/CardButton.gd" type="Script" id=1]
+[ext_resource path="res://gfx/cardfront.png" type="Texture" id=2]
 
-[node name="CardButton" type="Button"]
+[node name="CardButton" type="TextureButton"]
 anchor_right = 0.198
 anchor_bottom = 0.338
-margin_right = 0.247986
-margin_bottom = 0.199982
+margin_right = -32.752
+margin_bottom = 27.2
+texture_normal = ExtResource( 2 )
 script = ExtResource( 1 )
+
+[node name="Title" type="Label" parent="."]
+margin_left = 15.0
+margin_top = 20.0
+margin_right = 157.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="RichTextLabel" parent="."]
 margin_left = 16.0
-margin_top = 17.0
-margin_right = 186.0
-margin_bottom = 181.0
+margin_top = 61.0
+margin_right = 154.0
+margin_bottom = 215.0
 mouse_filter = 1
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+meta_underlined = false
 __meta__ = {
 "_edit_use_anchors_": false
 }

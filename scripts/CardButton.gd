@@ -1,7 +1,7 @@
-extends Button
+extends TextureButton
 
 func set_card(card: Card) -> void:
-	var result = card.get_name() + "\n=====\n\n"
+	var result = ""
 	for action in card.get_actions():
 		result += "%s %s\n" % [Global.labels[action[0]], action[1]]
 		
@@ -10,4 +10,5 @@ func set_card(card: Card) -> void:
 		for action in card.get_paid_actions():
 			result += "%s %s\n" % [Global.labels[action[0]], action[1]]
 		
+	$Title.text = card.get_name()
 	$Label.text = result

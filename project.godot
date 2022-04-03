@@ -20,13 +20,19 @@ _global_script_class_icons={
 
 [application]
 
-config/name="ld50-delay-the-inevitable"
+config/name="LD50 Delay the Inevitable"
 run/main_scene="res://scenes/Intro.tscn"
 config/icon="res://gfx/icon.png"
 
 [autoload]
 
 Global="*res://scripts/Global.gd"
+
+[display]
+
+window/size/width=600
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 
@@ -50,4 +56,5 @@ choose_right={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0.203922, 0.188235, 0.298039, 1 )
 environment/default_environment="res://default_env.tres"

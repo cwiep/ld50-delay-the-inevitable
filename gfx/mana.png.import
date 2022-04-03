@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/barbackground.png-6618b124d9db899acda90215d07b7b46.stex"
+path="res://.import/mana.png-16179d2c13cea3349a460474e97574ca.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/barbackground.png"
-dest_files=[ "res://.import/barbackground.png-6618b124d9db899acda90215d07b7b46.stex" ]
+source_file="res://gfx/mana.png"
+dest_files=[ "res://.import/mana.png-16179d2c13cea3349a460474e97574ca.stex" ]
 
 [params]
 

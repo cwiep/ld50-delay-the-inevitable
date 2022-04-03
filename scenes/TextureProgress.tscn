@@ -1,18 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/TextureProgress.gd" type="Script" id=1]
-[ext_resource path="res://gfx/barbackground.png" type="Texture" id=2]
 [ext_resource path="res://gfx/barforeground.png" type="Texture" id=3]
 [ext_resource path="res://gfx/rock.png" type="Texture" id=4]
 [ext_resource path="res://gfx/city.png" type="Texture" id=5]
 
 [node name="TextureProgress" type="TextureProgress"]
-margin_left = 23.0
-margin_top = 21.0
-margin_right = 959.0
-margin_bottom = 66.0
+margin_left = 50.0
+margin_top = 40.0
+margin_right = 550.0
+margin_bottom = 55.0
+max_value = 100.0
 value = 50.0
-texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
 nine_patch_stretch = true
 script = ExtResource( 1 )
@@ -21,11 +20,22 @@ __meta__ = {
 }
 
 [node name="City" type="Sprite" parent="."]
-position = Vector2( 933.387, 21.1893 )
-scale = Vector2( 0.576215, 0.576215 )
+position = Vector2( 430.013, 71.0796 )
+scale = Vector2( 0.970516, 0.949543 )
 texture = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 464.575, 22.7785 )
+position = Vector2( 20.2178, 79.8202 )
 scale = Vector2( 0.91723, 0.91723 )
 texture = ExtResource( 4 )
+
+[node name="Countdown" type="Label" parent="."]
+margin_left = 94.8108
+margin_top = 56.5676
+margin_right = 406.811
+margin_bottom = 89.5676
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -9,7 +9,7 @@
 		"back": []	
 	},
 	{
-		"name": "Get out of here!",
+		"name": "'Get out of here!'",
 		"quantity": 2,
 		"front": [
 			{"type": "MOVE_TRAIN", "value": 10},
@@ -40,7 +40,7 @@
 		}	
 	},
 	{
-		"name": "Evacuate",
+		"name": "'Run!'",
 		"quantity": 3,
 		"front": [
 			{"type": "MOVE_TRAIN", "value": 5},

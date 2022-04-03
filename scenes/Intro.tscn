@@ -11,10 +11,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 278.059
-margin_top = 192.595
-margin_right = 754.059
-margin_bottom = 379.595
+margin_left = 62.4564
+margin_top = 64.0299
+margin_right = 538.456
+margin_bottom = 251.03
 text = "One night, a massive asteroid fell from the sky.
 
 It aimed directly for the capital city.
@@ -27,10 +27,10 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="."]
-margin_left = 464.0
-margin_top = 447.0
-margin_right = 555.0
-margin_bottom = 467.0
+margin_left = 200.378
+margin_top = 451.786
+margin_right = 391.378
+margin_bottom = 525.786
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false

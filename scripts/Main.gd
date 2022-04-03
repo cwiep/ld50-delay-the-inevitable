@@ -84,7 +84,9 @@ func _shuffle_deck():
 	
 func _update_ui():
 	$TextureProgress.value = Global.CURRENT_TRAIN
-	$Cards/Info.text = "Deck: %s; Discarded: %s\nSaved: %s; Mana: %s;\nProgress: %s; Step: %s" % [deck.size(), trash.size(), Global.saved, Global.mana, Global.CURRENT_TRAIN, Global.CURRENT_TRAIN_STEP]
+	$PeopleSaved.text = str(Global.saved)
+	$ManaValue.text = str(Global.mana)
+	$DeckSize.text = str(deck.size())
 	$Cards/CardSlot1.set_card(hand[0])
 	$Cards/CardSlot2.set_card(hand[1])
 
