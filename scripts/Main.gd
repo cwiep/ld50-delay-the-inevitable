@@ -10,6 +10,7 @@ func _ready():
 	$Progress.max_value = Global.MAX_TRAIN
 	randomize()
 	deck = _import_cards()
+	deck.shuffle()
 	draw_new_cards()
 
 func _import_cards() -> Array:
@@ -34,7 +35,16 @@ func _import_cards() -> Array:
 			for b in card["back"]:
 				back.append([Global.ACTION.get(b["type"]), b["value"]])
 				
-			var inst = Card.new(card["name"], front, back)
+			var paid = []
+			var cost = 0
+			var cost_type
+			if card.has("paid"):
+				cost = card["paid"]["cost"]
+				cost_type = Global.COST_TYPE.get(card["paid"]["type"])
+				for p in card["paid"]["actions"]:
+					paid.append([Global.ACTION.get(p["type"]), p["value"]])
+				
+			var inst = Card.new(card["name"], front, back, cost, cost_type, paid)
 			print("adding ", inst)
 			cards.append(inst)
 		
@@ -80,20 +90,41 @@ func _update_ui():
 
 func _apply_card(card: Card) -> void:
 	for action in card.get_actions():
-		var action_type = action[0]
-		var value = action[1]
-		print("using %s %s" % [Global.labels[action_type], value])
-		# TODO action handling should be done in Global (or dedicated handler)
-		match action_type:
-			Global.ACTION.SAFE:
-				Global.save_people(value)
-			Global.ACTION.MOVE_TRAIN:
-				Global.move_train(value)
-			Global.ACTION.SPEED_UP_TRAIN:
-				Global.speed_up_train(value)
+		_perform_action(action)
+		
+	if card.get_cost() > 0:
+		var cost = card.get_cost()
+		var cost_type = card.get_cost_type()
+		match card.get_cost_type():
+			Global.COST_TYPE.MANA:
+				if Global.mana >= cost:
+					Global.change_mana(-cost)
+					for action in card.get_paid_actions():
+						_perform_action(action)
+			Global.COST_TYPE.PEOPLE:
+				if Global.saved >= cost:
+					Global.save_people(-cost)
+					for action in card.get_paid_actions():
+						_perform_action(action)
 			_:
-				print("unknown card %s" % card)
+				print("unknown cost type %s", cost_type)
 
+func _perform_action(action):
+	var action_type = action[0]
+	var value = action[1]
+	print("using %s %s" % [Global.labels[action_type], value])
+	# TODO action handling should be done in Global (or dedicated handler)
+	match action_type:
+		Global.ACTION.SAFE:
+			Global.save_people(value)
+		Global.ACTION.MOVE_TRAIN:
+			Global.move_train(value)
+		Global.ACTION.SPEED_UP_TRAIN:
+			Global.speed_up_train(value)
+		Global.ACTION.MANA:
+			Global.change_mana(value)
+		_:
+			print("unknown action %s", action)
 
 func _on_choose_left_pressed():
 	$SelectPlayer.play()

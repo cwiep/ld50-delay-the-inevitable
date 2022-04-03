@@ -1,15 +1,43 @@
 [
 	{
-		"name": "Sacrifice",
+		"name": "Observe and Learn",
+		"quantity": 3,
+		"front": [
+			{"type": "MOVE_TRAIN", "value": 5},
+			{"type": "MANA", "value": 1},
+		],
+		"back": []	
+	},
+	{
+		"name": "Get out of here!",
 		"quantity": 2,
 		"front": [
-			{"type": "MOVE_TRAIN", "value": -10},
-			{"type": "SAFE", "value": -5},
+			{"type": "MOVE_TRAIN", "value": 10},
+			{"type": "SAFE", "value": 5},
 		],
-		"back": [
-			{"type": "SPEED_UP_TRAIN", "value": -2},
-			{"type": "SAFE", "value": -10},
-		]
+		"back": [],
+		"paid": {
+			"cost": 1,
+			"type": "MANA",
+			"actions": [
+				{"type": "SAFE", "value": 10}
+			]
+		}	
+	},
+	{
+		"name": "A Higher Cause",
+		"quantity": 4,
+		"front": [
+			{"type": "MOVE_TRAIN", "value": 2},
+		],
+		"back": [],
+		"paid": {
+			"cost": 10,
+			"type": "PEOPLE",
+			"actions": [
+				{"type": "MANA", "value": 3}
+			]
+		}	
 	},
 	{
 		"name": "Evacuate",
@@ -18,44 +46,33 @@
 			{"type": "MOVE_TRAIN", "value": 5},
 			{"type": "SAFE", "value": 5},
 		],
-		"back": [
-			{"type": "SPEED_UP_TRAIN", "value": 2},
-			{"type": "SAFE", "value": 10},
-		]
+		"back": []
 	},
 	{
 		"name": "Hurry Up!",
 		"quantity": 2,
 		"front": [
-			{"type": "SPEED_UP_TRAIN", "value": 5},
-			{"type": "SAFE", "value": 20}
+			{"type": "SPEED_UP_TRAIN", "value": 2},
+			{"type": "SAFE", "value": 10}
 		],
-		"back": [
-			{"type": "SPEED_UP_TRAIN", "value": 1},
-			{"type": "SAFE", "value": 5},
-		]
+		"back": []
 	},
 	{
 		"name": "Slow Time",
 		"quantity": 2,
 		"front": [
 			{"type": "SPEED_UP_TRAIN", "value": -1},
-			{"type": "SAFE", "value": -5}
 		],
-		"back": [
-			{"type": "MOVE_TRAIN", "value": -5}
-		]
+		"back": []
 	},
 	{
 		"name": "Balance",
 		"quantity": 3,
 		"front": [
-			{"type": "MOVE_TRAIN", "value": 5},
+			{"type": "MOVE_TRAIN", "value": 10},
 			{"type": "SPEED_UP_TRAIN", "value": -1},
 		],
-		"back": [
-			{"type": "SPEED_UP_TRAIN", "value": 2}
-		]
+		"back": []
 	},
 	{
 		"name": "Reverse Time",
@@ -64,8 +81,21 @@
 			{"type": "SPEED_UP_TRAIN", "value": 2},
 			{"type": "MOVE_TRAIN", "value": -10},
 		],
-		"back": [
-			{"type": "SPEED_UP_TRAIN", "value": 2}
-		]
+		"back": []
+	},
+	{
+		"name": "Emergency Teleport",
+		"quantity": 1,
+		"front": [
+			{"type": "MOVE_TRAIN", "value": 10},
+		],
+		"back": [],
+		"paid": {
+			"cost": 5,
+			"type": "MANA",
+			"actions": [
+				{"type": "SAFE", "value": 20}
+			]
+		}	
 	},
 ]
