@@ -1,9 +1,16 @@
 [
 	{
+		"name": "Slow and Steady",
+		"quantity": 3,
+		"front": [
+			{"type": "SAFE", "value": 5},
+		],
+		"back": []	
+	},
+	{
 		"name": "Observe and Learn",
 		"quantity": 3,
 		"front": [
-			{"type": "MOVE_TRAIN", "value": 5},
 			{"type": "MANA", "value": 1},
 		],
 		"back": []	
