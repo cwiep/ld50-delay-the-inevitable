@@ -74,10 +74,7 @@ func _shuffle_deck():
 	
 func _update_ui():
 	$TextureProgress.value = Global.CURRENT_TRAIN
-	$Step.text = "Step %s" % Global.CURRENT_TRAIN_STEP
-	$Cards/DeckSize.text = "Deck: " + str(deck.size())
-	$Cards/TrashSize.text = "Discarded: " + str(trash.size())
-	$Cards/Saved.text = "Saved: " + str(Global.saved)
+	$Cards/Info.text = "Deck: %s; Discarded: %s\nSaved: %s; Mana: %s;\nProgress: %s; Step: %s" % [deck.size(), trash.size(), Global.saved, Global.mana, Global.CURRENT_TRAIN, Global.CURRENT_TRAIN_STEP]
 	$Cards/CardSlot1.set_card(hand[0])
 	$Cards/CardSlot2.set_card(hand[1])
 
@@ -96,23 +93,6 @@ func _apply_card(card: Card) -> void:
 				Global.speed_up_train(value)
 			_:
 				print("unknown card %s" % card)
-
-func _on_Timer_timeout():
-	# Global.CURRENT_TRAIN += Global.CURRENT_TRAIN_STEP
-	pass
-
-func _on_Confirm_pressed():
-	$SelectPlayer.play()
-	Global.CURRENT_TRAIN += Global.CURRENT_TRAIN_STEP
-	draw_new_cards()
-	if Global.CURRENT_TRAIN >= Global.MAX_TRAIN:
-		var _ignore = get_tree().change_scene("res://scenes/GameOver.tscn")
-
-func _on_CardSlot1_pressed():
-	hand[0].flip()
-
-func _on_CardSlot2_pressed():
-	hand[1].flip()
 
 
 func _on_choose_left_pressed():

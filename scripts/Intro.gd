@@ -2,7 +2,7 @@ extends Control
 
 var _clicked: bool = false
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("choose_left") or Input.is_action_just_pressed("choose_right"):
 		_on_Start_pressed()
 

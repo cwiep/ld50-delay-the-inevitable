@@ -32,19 +32,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Step" type="Label" parent="."]
-margin_left = 24.0
-margin_top = 18.0
-margin_right = 97.0
-margin_bottom = 43.0
-text = "Step: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
 [node name="Cards" type="Control" parent="."]
 margin_right = 1024.0
 margin_bottom = 40.0
@@ -55,39 +42,19 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="Cards"]
 margin_left = 28.0
 margin_top = 479.0
-margin_right = 116.0
+margin_right = 247.0
 margin_bottom = 571.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DeckSize" type="Label" parent="Cards"]
-margin_left = 36.8111
-margin_top = 489.871
-margin_right = 76.8111
-margin_bottom = 503.871
-text = "Deck:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TrashSize" type="Label" parent="Cards"]
-margin_left = 37.0812
-margin_top = 513.84
-margin_right = 77.0812
-margin_bottom = 527.84
-text = "Discarded:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Saved" type="Label" parent="Cards"]
-margin_left = 39.2001
-margin_top = 538.207
-margin_right = 79.2001
-margin_bottom = 552.207
-text = "Saved:"
+[node name="Info" type="Label" parent="Cards"]
+margin_left = 36.0
+margin_top = 489.0
+margin_right = 240.0
+margin_bottom = 559.0
+text = "info..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -96,31 +63,18 @@ __meta__ = {
 margin_left = 352.757
 margin_top = 309.345
 margin_right = 300.005
-margin_bottom = 445.825
+margin_bottom = 495.825
 
 [node name="CardSlot2" parent="Cards" instance=ExtResource( 5 )]
 margin_left = 554.273
-margin_top = 313.665
+margin_top = 310.097
 margin_right = 501.521
-margin_bottom = 450.145
-
-[node name="Confirm" type="Button" parent="Cards"]
-visible = false
-margin_left = 824.584
-margin_top = 468.703
-margin_right = 938.584
-margin_bottom = 503.703
-text = "Confirm"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_bottom = 496.577
 
 [node name="SelectPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 
 [node name="HurtPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Cards/CardSlot1" to="." method="_on_choose_left_pressed"]
 [connection signal="pressed" from="Cards/CardSlot2" to="." method="_on_choose_right_pressed"]
-[connection signal="pressed" from="Cards/Confirm" to="." method="_on_Confirm_pressed"]
