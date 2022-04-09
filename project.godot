@@ -51,6 +51,10 @@ choose_right={
  ]
 }
 
+[logging]
+
+file_logging/enable_file_logging=true
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
