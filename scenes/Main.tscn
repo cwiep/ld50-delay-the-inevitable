@@ -119,4 +119,6 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="button_pressed" from="Cards/CardSlot1" to="." method="_on_choose_left_pressed"]
+[connection signal="button_pressed" from="Cards/CardSlot2" to="." method="_on_choose_right_pressed"]
 [connection signal="finished" from="SelectCardSound" to="." method="_on_SelectCardSound_finished"]

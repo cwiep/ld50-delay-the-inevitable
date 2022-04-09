@@ -6,3 +6,5 @@ func _ready():
 func _input(event):
 	if event is InputEventKey and event.is_pressed() and !event.is_echo():
 		get_tree().change_scene("res://scenes/Intro.tscn")
+	if event is InputEventMouseButton and event.is_pressed() and !event.is_echo():
+		get_tree().change_scene("res://scenes/Intro.tscn")

@@ -1,5 +1,7 @@
 extends Node2D
 
+signal button_pressed
+
 func set_card(card: Card) -> void:
 	var result = ""
 	for action in card.get_actions():
@@ -12,3 +14,6 @@ func set_card(card: Card) -> void:
 		
 	$Button/Title.text = card.get_name()
 	$Button/Label.text = result
+
+func _on_Button_pressed():
+	emit_signal("button_pressed")
